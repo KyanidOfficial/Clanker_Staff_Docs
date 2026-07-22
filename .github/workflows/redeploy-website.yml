@@ -1,0 +1,20 @@
+name: Redeploy website
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "staffPortalContent.js"
+      - ".github/workflows/redeploy-website.yml"
+  workflow_dispatch:
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel deploy hook
+        run: |
+          curl --fail --request POST "$VERCEL_DEPLOY_HOOK_URL"
+        env:
+          VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
