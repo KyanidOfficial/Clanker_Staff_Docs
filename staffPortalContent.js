@@ -1,7 +1,7 @@
 export const staffPortalDocuments = [
   {
     slug: "training-hosting",
-    title: "test 3",
+    title: "Training Hosting",
     summary: "Schedule, start, track, and finish trainings cleanly.",
     category: "Operations",
     sections: [
